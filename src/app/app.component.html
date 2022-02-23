@@ -1,0 +1,29 @@
+<h1>A Fancy Table</h1>
+<label
+  >Date Filter:
+  <input type="date" [(ngModel)]="date" name="date" />
+</label>
+<label
+  >Status Filter:
+  <select class="form-control" [(ngModel)]="stringStatus" name="stringStatus">
+    <option></option>
+    <option value="active">Active</option>
+    <option value="completed">Completed</option>
+  </select>
+</label>
+<table id="customers">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data | dateFilter: date | status: stringStatus">
+      <td>{{ item.name }}</td>
+      <td>{{ item.date }}</td>
+      <td>{{ item.status }}</td>
+    </tr>
+  </tbody>
+</table>
